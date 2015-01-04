@@ -39,7 +39,7 @@ public class Main {
         tts = new TTS();
         //rtcWebSocket = new RTCWebSocket();
         //rtcWebSocket.start();
-        amazonEchoApi = new AmazonEchoApi("https://pitangui.amazon.com","noelportugal@gmail.com", "TheAppslab1");
+        amazonEchoApi = new AmazonEchoApi("https://pitangui.amazon.com","USERNAME", "PASSWORD");
         amazonEchoApi.httpLogin();
         
         dl = new AttDigitalLife(username, password);
