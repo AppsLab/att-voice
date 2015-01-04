@@ -45,29 +45,29 @@ public final class TTS {
 
         try {
 
-//            HttpPost httpPost = new HttpPost("https://api.att.com/speech/v3/textToSpeech");
-//            httpPost.setHeader("Authorization", "Bearer " + mAuthToken);
-//            httpPost.setHeader("Accept", "audio/x-wav");
-//            httpPost.setHeader("Content-Type", "text/plain");
-//            httpPost.setHeader("Tempo", "-16");
-//            HttpEntity entity = new StringEntity(text, "UTF-8");
-//
-//            httpPost.setEntity(entity);
-//            HttpResponse response = httpclient.execute(httpPost);
-//            //String result = EntityUtils.toString(response.getEntity());
-//            HttpEntity result = response.getEntity();
-//
-//            BufferedInputStream bis = new BufferedInputStream(result.getContent());
-//            String filePath = System.getProperty("user.dir") + tempFile;
-//            BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream(new File(filePath)));
-//            int inByte;
-//            while ((inByte = bis.read()) != -1) {
-//                bos.write(inByte);
-//            }
-//            bis.close();
-//            bos.close();
+            HttpPost httpPost = new HttpPost("https://api.att.com/speech/v3/textToSpeech");
+            httpPost.setHeader("Authorization", "Bearer " + mAuthToken);
+            httpPost.setHeader("Accept", "audio/x-wav");
+            httpPost.setHeader("Content-Type", "text/plain");
+            httpPost.setHeader("Tempo", "-16");
+            HttpEntity entity = new StringEntity(text, "UTF-8");
 
-            executeOnCommandLine("afplay " + System.getProperty("user.dir") + "/" + file);
+            httpPost.setEntity(entity);
+            HttpResponse response = httpclient.execute(httpPost);
+            //String result = EntityUtils.toString(response.getEntity());
+            HttpEntity result = response.getEntity();
+
+            BufferedInputStream bis = new BufferedInputStream(result.getContent());
+            String filePath = System.getProperty("user.dir") + tempFile;
+            BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream(new File(filePath)));
+            int inByte;
+            while ((inByte = bis.read()) != -1) {
+                bos.write(inByte);
+            }
+            bis.close();
+            bos.close();
+
+            executeOnCommandLine("afplay " + System.getProperty("user.dir") + "/" + tempFile);
         } catch (Exception ex) {
             System.err.println(ex.getMessage());
 
