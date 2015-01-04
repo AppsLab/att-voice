@@ -1,5 +1,4 @@
-AmazonEchoHomeAutomation
+AT&T Voice
 ========================
 
-Implementation of the Unnoficial Amazon Echo API
-https://github.com/noelportugal/AmazonEchoApi
+Project made for https://devsummit.att.com/hackathon
